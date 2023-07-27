@@ -1,5 +1,5 @@
 from rest_framework import routers 
-from .views import CourseViewSet, ProfessionViewSet
+from courses.views import CourseViewSet, ProfessionViewSet
 
 router = routers.DefaultRouter()
 

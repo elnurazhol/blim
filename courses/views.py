@@ -1,5 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
-from .models import Profession, Course
+from courses.models import Profession, Course
 from courses.serializers import CourseSerializer, ProfessionSerializer
 
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
