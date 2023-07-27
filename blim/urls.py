@@ -37,4 +37,5 @@ urlpatterns = [
     path("auth/", include("djoser.urls.jwt")),
     path("", schema_view.with_ui("swagger", cache_timeout=0), name="schema-swagger-ui"),
     path("courses/", include("courses.urls")),
+    path("materials/", include("materials.urls")),
 ]
