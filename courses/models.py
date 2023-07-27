@@ -14,6 +14,7 @@ class Course(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     profession = models.ForeignKey(Profession, on_delete=models.CASCADE)
+    materials = models.ManyToManyField('materials.Material', related_name='courses', blank=True)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     is_free = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
