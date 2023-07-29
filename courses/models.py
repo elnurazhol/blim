@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 class Profession(models.Model):
     title = models.CharField(max_length=150)
@@ -18,6 +19,14 @@ class Course(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     is_free = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def clean(self):
+        if not self.is_free and not self.price:
+            raise ValidationError('Price is required for non-free courses.')
+
+    def save(self, *args, **kwargs):
+        self.full_clean()  # Perform validation before saving
+        super().save(*args, **kwargs)
 
     def __str__(self) -> str:
         return self.title
