@@ -38,4 +38,5 @@ urlpatterns = [
     path("", schema_view.with_ui("swagger", cache_timeout=0), name="schema-swagger-ui"),
     path("courses/", include("courses.urls")),
     path("materials/", include("materials.urls")),
+    path("user_profile/", include("user_profile.urls")),
 ]
