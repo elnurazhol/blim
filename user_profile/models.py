@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100, blank=True)
+    surname = models.CharField(max_length=100, blank=True)
     profile_photo = models.ImageField(upload_to='profile_photos/', blank=True, null=True)
     employment_status = models.CharField(max_length=150, blank=True)
     highest_degree = models.CharField(max_length=150, blank=True)
