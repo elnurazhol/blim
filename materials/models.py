@@ -1,5 +1,4 @@
 from django.db import models
-from courses.models import Profession
 
 
 
@@ -11,9 +10,9 @@ class Material(models.Model):
     )
 
 
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, unique=True)
     description = models.TextField()
-    profession = models.ForeignKey(Profession, on_delete=models.CASCADE)
+    profession = models.ForeignKey('courses.Profession', on_delete=models.CASCADE, to_field='title')
     is_paid = models.BooleanField(default=False)
     price = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
     images = models.ImageField(upload_to='images/', blank=True, null=True)

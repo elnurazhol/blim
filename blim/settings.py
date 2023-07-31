@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "courses",
     "materials",
     "user_profile",
+    "comments",
 ]
 
 MIDDLEWARE = [
