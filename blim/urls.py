@@ -41,4 +41,5 @@ urlpatterns = [
     path("user_profile/", include("user_profile.urls")),
     path("comments/", include("comments.urls")),
     path("subscriptions/", include("subscriptions.urls")),
+    path("certificates/", include("certificates.urls")),
 ]
