@@ -40,4 +40,5 @@ urlpatterns = [
     path("materials/", include("materials.urls")),
     path("user_profile/", include("user_profile.urls")),
     path("comments/", include("comments.urls")),
+    path("subscriptions/", include("subscriptions.urls")),
 ]
