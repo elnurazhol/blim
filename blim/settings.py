@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "user_profile",
     "comments",
     "subscriptions",
+    "certificates",
 ]
 
 MIDDLEWARE = [
