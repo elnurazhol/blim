@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from courses.models import Course
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, to_field='username')
@@ -17,5 +19,16 @@ class Profile(models.Model):
 
     def __str__(self) -> str:
         return f"{self.user.username}'s Profile"
+    
+
+class UserCourse(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, to_field='username')
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, to_field='title')
+    purchase_date = models.DateTimeField(auto_now_add=True)
+    is_completed = models.BooleanField(default=False)
+
+
+    class Meta:
+        unique_together = ('user', 'course')  # Указываем, что пользователь не может купить один и тот же курс дважды
     
     
